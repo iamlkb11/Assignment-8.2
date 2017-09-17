@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html><!-- Head of the Root -->
+	<head><!-- child sub root of the html tag as head tag  -->
+    	<!-- it is a title tag -->
+		<title>Welcome</title>
+		<style type="text/css">
+		/*Applying basic style to h1 and body contents*/
+			h1
+			{
+				color:black;
+				font-size: 30px;
+				font-family: arial;
+				text-align:center;
+			}
+			body
+			{
+				font-size: 18px;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+	
+	<body>
+		
+		<h1>MySelfieTech</h1>
+		<div style="text-align: center;">
+			<p>welcome to <span id="message"></span></p>
+			<br>
+			<input type="button" value="Log out" onclick="location.href='file:///C:/Users/Leo/Desktop/Assignment-8.2.html';" />
+		</div>
+
+		<script>
+			//displays the username from local storage
+			// Check browser support
+			if (typeof(Storage) !== "undefined") 
+			{
+    		// Retrieve
+    		document.getElementById("message").innerHTML = localStorage.getItem("Name");
+			} 
+			else 
+			{
+			alert("Local storage is not support!");
+			}
+		</script>
+	
+	</body>
+</html>
