@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html><!-- Head of the Root -->
+	<head><!-- child sub root of the html tag as head tag  -->
+    	<!-- it is a title tag -->
+		<title>Log In</title>
+		<style type="text/css">
+		/*Applying basic style to h1 and body contents*/
+			h1
+			{
+				color:black;
+				font-size: 30px;
+				font-family: arial;
+				text-align:center;
+			}
+			body
+			{
+				font-size: 18px;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>MySelfieTech</h1>
+		<br>
+
+		<div style="text-align: center;">
+		<p>Login</p><br>
+		
+			<form onsubmit="return false">
+				<input type="email" placeholder="email" id="emailField" required /><br>
+				<input type="password" id="pwdField" placeholder="Password" required /><br>
+				<input type="submit" value="Submit Query" onclick="return onSubmitClick();"/><br>
+				<p id="message"></p> 
+				<input type="button" value="Back" onclick="location.href='index.html';">
+			</form>
+		</div>
+
+		<script type="text/javascript">
+
+			function onSubmitClick()
+			{
+				var email=document.getElementById("emailField").value;
+			var pwd=document.getElementById("pwdField").value;
+		
+				if ((email==='')||(pwd==='')) 
+				{
+				alert("Please enter all of the field values before submitting!");
+				}
+				else
+				{
+				//checks if local storage exists
+				if (typeof(Storage) !== "undefined") 
+					{
+    				if (email === localStorage.getItem("emailID") && pwd === localStorage.getItem("password")) 
+    					{
+    					//Redirects to welcome.html
+    					RedirectTo();
+						return false;
+    					}
+    				else
+    					{
+    					document.getElementById("message").innerHTML="user or password is incorrect";
+    					}
+						} 
+					else 
+						{
+    					alert("Local storage not supported!");
+						}
+				}
+			}
+			function RedirectTo() 
+			{
+               window.location.href="file:///C:/Users/Leo/Desktop/Welcome.html";
+    		}
+    
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html><!-- Head of the Root -->
+	<head><!-- child sub root of the html tag as head tag  -->
+    	<!-- it is a title tag -->
+		<title>Sign up</title>
+		<style type="text/css">
+			/*Applying basic style to h1 and body contents*/
+			h1
+			{
+				color:black;
+				font-size: 30px;
+				font-family: arial;
+				text-align:center;
+			}
+			body
+			{
+				font-size: 18px;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>MySelfieTech</h1>
+
+		<br><br><br>
+
+		<div style="text-align:center;">
+			<p>Sign Up</p><br>
+		
+			<form>
+				<input type="text" id="nameField" placeholder="name" required /><br>
+				<input type="email" id="emailField" placeholder="email" required /><br>
+				<input type="password" id="pwdField" placeholder="password" required/><br>
+				<input type="submit" name="subButton" value="Submit Query" onclick="onClickingSubmit();">
+				<input type="button" name="backButton" value="Back" onclick="location.href='file:///C:/Users/Leo/Desktop/Assignment-8.2.html';">
+			</form>
+		</div>
+
+		<script type="text/javascript">
+
+		function onClickingSubmit()
+		{
+			var name=document.getElementById("nameField").value;
+			var email=document.getElementById("emailField").value;
+			var pwd=document.getElementById("pwdField").value;
+			if ((name==='')||(email==='')||(pwd==='')) 
+			{
+			alert("Please enter all of the field values before submitting!");
+			}
+			else
+			{
+				if (typeof(Storage) !=="undefined") 
+				{
+					localStorage.setItem("Name",name);
+					localStorage.setItem("emailID", email);
+					localStorage.setItem("password", pwd);
+				}
+				else
+				{
+					alert("Local storage not supported!");
+				}
+			}
+		}
+		</script>
+
+	</body>
+</html>
